@@ -6,7 +6,10 @@ remote_theme: just-the-docs/just-the-docs
 plugins:
   - jekyll-remote-theme
 
-baseurl: ""   # для адреса /QUD_test_rules/
+# ВАЖНО: для project pages baseurl = "/<имя_репозитория>"
+url: "https://qudinfo.github.io"
+baseurl: "/QUD_test_rules"
+
 search_enabled: true
 nav_sort: case_insensitive
 
