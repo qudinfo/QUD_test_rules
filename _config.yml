@@ -1,15 +1,17 @@
 title: QUD — Demo Test Docs
 description: Правила, процедуры и FAQ
-theme: just-the-docs
 
-# Сайт по адресу: https://<твой_логин>.github.io/QUD_test_rules/
-baseurl: ""
+# Подключаем тему как удалённую (надёжно для project pages)
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
 
-# Поиск и сортировка
+baseurl: ""   # для адреса /QUD_test_rules/
 search_enabled: true
 nav_sort: case_insensitive
 
-# Ссылка в шапке (по желанию)
 aux_links:
+  WebTrader:
+    - "https://www.mql5.com/en/trading"
   Support (email):
     - "mailto:gatequd@proton.me"
