@@ -1,0 +1,15 @@
+title: QUD — Demo Test Docs
+description: Правила, процедуры и FAQ
+theme: just-the-docs
+
+# Сайт по адресу: https://<твой_логин>.github.io/QUD_test_rules/
+baseurl: ""
+
+# Поиск и сортировка
+search_enabled: true
+nav_sort: case_insensitive
+
+# Ссылка в шапке (по желанию)
+aux_links:
+  Support (email):
+    - "mailto:gatequd@proton.me"
