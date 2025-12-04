@@ -1,64 +1,65 @@
-/* === QUD custom layout (QUD) === */
-
-/* Только для десктопа */
+/* === QUD custom layout (точная подгонка) === */
 @media (min-width: 992px) {
 
-  /* 1) Узкая левая панель + место под заголовок */
-  .side-bar {
-    width: 240px !important;
-    z-index: 1001 !important;
-    padding-top: 58px;            /* высота шапки; даёт ровное выравнивание по поиску */
+  /* Регулировки в одном месте */
+  :root{
+    --qud-sidebar: 240px;   /* ширина левого серого блока */
+    --qud-gap: 16px;        /* зазор между серым блоком и контентом/поиском */
+    --qud-title-top: 14px;  /* вертикальное выравнивание QUD под линию поиска */
+    --qud-title-size: 22px; /* размер QUD в левой панели */
   }
 
-  /* 2) Основной контент правее панели */
-  .main {
-    margin-left: 260px !important;  /* на 20px больше ширины сайдбара */
+  /* Левая панель */
+  .side-bar{
+    width: var(--qud-sidebar) !important;
+    z-index: 1001 !important;
+    padding-top: 58px; /* высота шапки, чтобы меню начиналось под заголовком */
+    position: relative;
+  }
+
+  /* Заголовок QUD в левой панели */
+  .qud-side-title{
+    position: absolute;
+    top: var(--qud-title-top);
+    left: 16px;
+    display: block;
+    font-weight: 800;
+    font-size: var(--qud-title-size);
+    line-height: 1;
+    margin: 0;
+    color: inherit;
+    text-decoration: none;
+  }
+  .qud-side-title:hover{ text-decoration: underline; }
+
+  /* Основной блок и шапка: сдвигаем ровно на ширину панели + зазор */
+  .main{
+    margin-left: calc(var(--qud-sidebar) + var(--qud-gap)) !important;
     position: relative;
     z-index: 1;
   }
-
-  /* 3) Шапка и поиск — сдвигаем чуть ближе к левой панели */
   .main-header,
-  .site-header {
-    padding-left: 248px !important;  /* было 260 — пододвинули к серой панели */
+  .site-header{
+    padding-left: calc(var(--qud-sidebar) + var(--qud-gap)) !important;
   }
 
-  /* 4) Расширяем контентную колонку */
-  .main-content {
-    max-width: 1100px !important;
-  }
-
-  /* 5) Поле поиска растягиваем по максимуму */
-  .main-header .search {
+  /* Поиск: растянуть и придвинуть */
+  .main-header .search{
     flex: 1 1 auto;
-    margin: 0 16px;
+    margin-left: 8px;     /* ближе к серой панели */
+    margin-right: 16px;
   }
-  .search-input-wrap {
-    max-width: 100% !important;
+  .search-input-wrap{
     width: 100% !important;
+    max-width: 100% !important;
   }
+
+  /* Контент шире */
+  .main-content{ max-width: 1100px !important; }
 }
 
-/* 6) Читаемость текста */
-.main-content p {
-  font-size: 17px;
-  line-height: 1.65;
-}
+/* Читаемость текста */
+.main-content p{ font-size: 17px; line-height: 1.65; }
 
-/* 7) Прячем футер Just the Docs */
-.site-footer { display: none !important; }
-
-/* 8) Заголовок QUD в левой панели: крупнее и по одной линии с поиском */
-.qud-side-title {
-  position: absolute;     /* фиксируем внутри .side-bar */
-  top: 12px;              /* вертикальное выравнивание с поиском */
-  left: 16px;
-  display: block;
-  font-weight: 800;
-  font-size: 20px;        /* было 18 — сделали крупнее */
-  line-height: 1;
-  text-decoration: none;
-  color: inherit;
-  margin: 0;              /* убрали отступы, чтобы точно выровнять */
-}
-.qud-side-title:hover { text-decoration: underline; }
+/* Убрать футер Just the Docs (дублируем на случай кэша) */
+.site-footer{ display:none !important; }
