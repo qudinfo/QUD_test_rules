@@ -1,17 +1,34 @@
-/* Desktop-вид: сужаем левую панель и расширяем контент */
+/* === QUD custom layout === */
+
+/* Только для десктопа, чтобы не ломать мобильную версию */
 @media (min-width: 992px) {
+
+  /* 1) Узкий сайдбар */
   .side-bar {
-    width: 210px !important;
+    width: 240px !important;       /* было 210 — даём запас */
+    z-index: 1001 !important;       /* поверх контента для кликов по меню */
   }
+
+  /* 2) Основная область смещаем правее ширины сайдбара */
   .main {
-    margin-left: 230px !important; /* чуть больше ширины сайдбара */
+    margin-left: 260px !important;  /* всегда чуть больше ширины .side-bar */
+    position: relative;
+    z-index: 1;
   }
+
+  /* 3) Шапка (полоса с поиском) тоже учитывает новый отступ */
+  .main-header,
+  .site-header {
+    padding-left: 260px !important;
+  }
+
+  /* 4) Расширяем область текста */
   .main-content {
-    max-width: 1100px !important; /* было ~800px */
+    max-width: 1100px !important;   /* было ~800 */
   }
 }
 
-/* Чуть лучшая читаемость текста */
+/* 5) Чуть улучшим читабельность текста */
 .main-content p {
   font-size: 17px;
   line-height: 1.65;
