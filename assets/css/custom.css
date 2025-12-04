@@ -1,11 +1,11 @@
 /* Уменьшаем ширину левой панели */
 .side-bar {
-  width: 210px !important;
+  width: 200px !important;
 }
 
 /* Смещаем правую часть */
 .main {
-  margin-left: 230px !important;
+  margin-left: 200px !important;
 }
 
 /* Расширяем контент */
