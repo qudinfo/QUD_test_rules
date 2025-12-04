@@ -8,7 +8,7 @@ nav_order: 4
 # Инструменты и хеджирование
 
 ## Разрешённые инструменты для торговли
-- Допускаются основные валютные пары (**Forex majors**): EURUSD; GBPUSD; USDJPY; USDCHF; USDCAD; AUDUSD; NZDUSD; EURJPY; GBPJPY
+- Допускаются основные валютные пары (Forex majors): EURUSD; GBPUSD; USDJPY; USDCHF; USDCAD; AUDUSD; NZDUSD; EURJPY; GBPJPY
 - Металлы: XAUUSD, XAGUSD.
 - Инструменты не вошедшие в список допущенных после открытия ордера будут принудительно закрыты.
 
