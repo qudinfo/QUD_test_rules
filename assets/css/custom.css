@@ -1,34 +1,36 @@
 /* =========================
-   QUD — чистый макет с нуля
+   QUD — макет в стиле learn.netlify.app
    ========================= */
 
-/* Десктопный вид */
 @media (min-width: 992px) {
 
-  /* Ключевые размеры — настраиваются здесь */
+  /* Точки настройки в одном месте */
   :root{
-    --qud-sidebar: 240px;         /* ширина левого серого блока */
-    --qud-header-h: 56px;         /* высота верхней шапки */
-    --qud-gap: 12px;              /* зазор между серой панелью и шапкой/контентом */
-    --qud-title-top: 12px;        /* верт. позиция QUD в сайдбаре (подгон по линии шапки) */
-    --qud-title-size: 24px;       /* размер надписи QUD */
-    --qud-border: rgba(0,0,0,0.08); /* цвет деликатных разделителей */
+    --qud-sidebar: 240px;         /* ширина левого блока */
+    --qud-gap: 12px;              /* зазор между левым блоком и контентом/шапкой */
+    --qud-header-h: 56px;         /* высота шапки */
+    --qud-title-top: 12px;        /* вертикальная подгонка "QUD" */
+    --qud-title-size: 24px;       /* размер "QUD" */
+    --qud-border: rgba(0,0,0,0.08);
   }
 
-  /* ===== Левая панель ===== */
+  /* ===== Левый блок (как у learn: на всю высоту, со скроллом) ===== */
   .side-bar{
     width: var(--qud-sidebar) !important;
-    min-height: 100vh;                 /* тянем серый фон до низа */
-    position: relative;
-    z-index: 1001 !important;          /* меню кликабельно, не перекрывается контентом */
-    padding-top: var(--qud-header-h);  /* место под заголовок вверху */
-    border-right: 1px solid var(--qud-border); /* вертикальный разделитель */
+    position: sticky;           /* зафиксирован относительно вьюпорта */
+    top: 0;
+    height: 100vh;              /* тянем до низа экрана */
+    overflow: auto;             /* собственная прокрутка, если пунктов много */
+    padding-top: var(--qud-header-h);
+    border-right: 1px solid var(--qud-border);
+    background: #f7f7f7;
+    z-index: 1001 !important;
   }
 
-  /* Надпись QUD (добавляется скриптом в head_custom.html) */
+  /* Заголовок QUD в сайдбаре */
   .qud-side-title{
     position: absolute;
-    top: var(--qud-title-top);   /* ↑ если нужно поднять/опустить на 1–2px */
+    top: var(--qud-title-top);
     left: 16px;
     margin: 0;
     font-weight: 800;
@@ -40,22 +42,28 @@
   }
   .qud-side-title:hover{ text-decoration: underline; }
 
-  /* ===== Шапка (ряд с поиском и правыми ссылками) ===== */
+  /* ===== Шапка (sticky как у learn) ===== */
   .site-header,
   .main-header{
-    padding-left: calc(var(--qud-sidebar) + var(--qud-gap)) !important; /* учёт ширины сайдбара */
+    position: sticky;
+    top: 0;
+    z-index: 1002;
+    height: var(--qud-header-h);
     min-height: var(--qud-header-h);
     display: flex;
-    align-items: center; 
+    align-items: center;
     gap: 12px;
-    border-bottom: 1px solid var(--qud-border); /* горизонтальный разделитель */
+    padding-left: calc(var(--qud-sidebar) + var(--qud-gap)) !important;
+    padding-right: 16px;
     background: #fff;
+    border-bottom: 1px solid var(--qud-border);
+    box-sizing: border-box;
   }
 
-  /* Убираем дефолтный заголовок темы в шапке — у нас QUD слева в сайдбаре */
-  .site-title{ display:none !important; }
+  /* Прячем дефолтный заголовок темы — у нас QUD в левом блоке */
+  .site-title{ display: none !important; }
 
-  /* Поиск: тянем максимально между левой панелью и правыми ссылками */
+  /* Поиск тянется максимально */
   .main-header .search{
     flex: 1 1 auto;
     margin: 0;
@@ -65,7 +73,7 @@
     max-width: 100% !important;
   }
 
-  /* Правые ссылки (WebTrader / Support) прижаты вправо */
+  /* Правые ссылки прижаты вправо */
   .main-header .aux-nav,
   .site-header .aux-nav{
     margin-left: auto;
@@ -74,22 +82,24 @@
     gap: 16px;
   }
 
-  /* ===== Основная колонка контента ===== */
+  /* ===== Контент ===== */
   .main{
     margin-left: calc(var(--qud-sidebar) + var(--qud-gap)) !important;
-    position: relative;
-    z-index: 1;
   }
+
+  /* Чтобы контент НЕ «проваливался» под sticky-шапку,
+     добавляем безопасный внутренний отступ сверху. */
   .main-content{
-    max-width: 1100px !important;   /* шире, удобно читать */
+    max-width: 1100px !important;
+    padding-top: 24px;    /* ← ключевая строка, из-за которой текст не падает вниз */
   }
 }
 
-/* ===== Типографика и мелкие правки ===== */
+/* Типографика */
 .main-content p{
   font-size: 17px;
   line-height: 1.65;
 }
 
-/* Прячем футер Just the Docs */
-.site-footer{ display:none !important; }
+/* Скрыть футер Just the Docs */
+.site-footer{ display: none !important; }
