@@ -60,3 +60,10 @@
   color: inherit;
 }
 .qud-side-title:hover { text-decoration: underline; }
+
+/* Растягиваем левую панель на всю высоту страницы */
+.side-bar {
+  min-height: 100vh !important;   /* тянем до нижнего края видимой области */
+  height: auto !important;        /* позволяет растягиваться дальше, если контента много */
+}
+
