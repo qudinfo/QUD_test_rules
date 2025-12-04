@@ -1,19 +1,17 @@
-/* Уменьшаем ширину левой панели */
-.side-bar {
-  width: 200px !important;
+/* Desktop-вид: сужаем левую панель и расширяем контент */
+@media (min-width: 992px) {
+  .side-bar {
+    width: 210px !important;
+  }
+  .main {
+    margin-left: 230px !important; /* чуть больше ширины сайдбара */
+  }
+  .main-content {
+    max-width: 1100px !important; /* было ~800px */
+  }
 }
 
-/* Смещаем правую часть */
-.main {
-  margin-left: 200px !important;
-}
-
-/* Расширяем контент */
-.main-content {
-  max-width: 1100px !important;
-}
-
-/* Улучшаем читаемость */
+/* Чуть лучшая читаемость текста */
 .main-content p {
   font-size: 17px;
   line-height: 1.65;
