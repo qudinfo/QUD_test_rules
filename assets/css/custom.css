@@ -22,6 +22,7 @@
     position: relative;
     z-index: 1001 !important;          /* меню кликабельно, не перекрывается контентом */
     padding-top: var(--qud-header-h);  /* место под заголовок вверху */
+    border-right: 1px solid var(--qud-border); /* вертикальный разделитель */
   }
 
   /* Надпись QUD (добавляется скриптом в head_custom.html) */
