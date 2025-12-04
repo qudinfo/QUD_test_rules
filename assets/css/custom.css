@@ -1,17 +1,18 @@
 /* === QUD custom layout === */
 
-/* Только для десктопа, чтобы не ломать мобильную версию */
+/* Только для десктопа */
 @media (min-width: 992px) {
 
   /* 1) Узкий сайдбар */
   .side-bar {
-    width: 240px !important;       /* было 210 — даём запас */
-    z-index: 1001 !important;       /* поверх контента для кликов по меню */
+    width: 240px !important;     /* ширина левого блока */
+    z-index: 1001 !important;     /* чтобы клики по меню не перекрывались */
+    padding-top: 56px;            /* место под наш переносимый заголовок */
   }
 
-  /* 2) Основная область смещаем правее ширины сайдбара */
+  /* 2) Основная часть смещаем правее ширины сайдбара */
   .main {
-    margin-left: 260px !important;  /* всегда чуть больше ширины .side-bar */
+    margin-left: 260px !important;  /* чуть больше ширины .side-bar */
     position: relative;
     z-index: 1;
   }
@@ -22,14 +23,40 @@
     padding-left: 260px !important;
   }
 
-  /* 4) Расширяем область текста */
+  /* 4) Расширяем контентную колонку */
   .main-content {
     max-width: 1100px !important;   /* было ~800 */
   }
+
+  /* 5) Делаем поиск растяжимым между левым краем и ссылками справа */
+  .main-header .search {
+    flex: 1 1 auto;
+    margin: 0 16px;
+  }
+  .search-input-wrap {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
 }
 
-/* 5) Чуть улучшим читабельность текста */
+/* 6) Улучшаем читабельность текста */
 .main-content p {
   font-size: 17px;
   line-height: 1.65;
 }
+
+/* 7) Прячем дефолтный футер Just the Docs */
+.site-footer {
+  display: none !important;
+}
+
+/* 8) Сайдбарный заголовок QUD (который добавим скриптом) */
+.qud-side-title {
+  display: block;
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 12px 16px 8px 16px;
+  color: inherit;
+}
+.qud-side-title:hover { text-decoration: underline; }
