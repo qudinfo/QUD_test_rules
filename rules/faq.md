@@ -19,4 +19,4 @@ nav_order: 99
 Допускается всё, что не нарушает правила платформы и условия демо-теста (лимиты, SL-политика, инструменты, запрет хеджа).
 
 **Где уточнить спорные моменты?**  
-Связь: [**gatequd@proton.me**](mailto:gatequd@proton.me)
+Связь: [gatequd@proton.me](mailto:gatequd@proton.me)
