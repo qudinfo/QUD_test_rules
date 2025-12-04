@@ -1,66 +1,82 @@
-/* === QUD layout — точная подгонка выравнивания === */
+/* === QUD layout — финальная разметка с разделителями === */
 @media (min-width: 992px) {
 
-  /* Все ключевые размеры — тут. Если нужно тонко подвинуть,
-     меняй значения ниже без правки остального CSS. */
   :root{
-    --qud-sidebar: 240px;   /* ширина серой панели слева */
-    --qud-gap: 8px;         /* зазор между серой панелью и поиском/контентом */
-    --qud-title-top: 10px;  /* вертикальное выравнивание слова QUD по линии поиска */
-    --qud-title-size: 24px; /* размер слова QUD */
+    --qud-sidebar: 240px;   /* ширина левого блока */
+    --qud-gap: 12px;        /* зазор между левым блоком и шапкой/контентом */
+    --qud-title-top: 12px;  /* выравнивание "QUD" по шапке */
+    --qud-title-size: 24px; /* размер "QUD" */
+    --qud-header-h: 56px;   /* высота шапки */
+    --qud-border: rgba(0,0,0,0.08); /* цвет деликатных линий */
   }
 
-  /* Левая панель */
+  /* Левая панель + вертикальный разделитель */
   .side-bar{
     width: var(--qud-sidebar) !important;
-    z-index: 1001 !important;
-    padding-top: 58px;      /* место под QUD; чтобы меню начиналось ниже */
+    padding-top: var(--qud-header-h);
     position: relative;
+    z-index: 1001 !important;
+    border-right: 1px solid var(--qud-border); /* ← вертикальная линия */
   }
 
-  /* Слово QUD в левой панели */
+  /* Заголовок в левой панели */
   .qud-side-title{
     position: absolute;
-    top: var(--qud-title-top);   /* ← если надо выше/ниже: меняй 8–13px */
+    top: var(--qud-title-top);
     left: 16px;
-    display: block;
     margin: 0;
     font-weight: 800;
-    font-size: var(--qud-title-size); /* стало крупнее */
+    font-size: var(--qud-title-size);
     line-height: 1;
     color: inherit;
     text-decoration: none;
   }
   .qud-side-title:hover{ text-decoration: underline; }
 
-  /* Контент и шапка: смещаем ровно на ширину панели + маленький зазор */
+  /* Основная колонка */
   .main{
     margin-left: calc(var(--qud-sidebar) + var(--qud-gap)) !important;
     position: relative;
     z-index: 1;
   }
-  .main-header,
-  .site-header{
-    padding-left: calc(var(--qud-sidebar) + var(--qud-gap)) !important; /* ← придвинул поиск */
+
+  /* Шапка: горизонтальный разделитель и точное выравнивание */
+  .site-header,
+  .main-header{
+    padding-left: calc(var(--qud-sidebar) + var(--qud-gap)) !important;
+    min-height: var(--qud-header-h);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--qud-border); /* ← горизонтальная линия */
+    background: #fff; /* чтобы линия читалась на всех экранах */
   }
 
-  /* Поиск: растянуть и придвинуть */
+  /* Поиск: максимально тянем между левым блоком и правыми ссылками */
   .main-header .search{
     flex: 1 1 auto;
-    margin-left: 0;       /* вплотную к серой панели (через --qud-gap сверху) */
-    margin-right: 16px;
+    margin: 0;
   }
   .search-input-wrap{
     width: 100% !important;
     max-width: 100% !important;
   }
 
-  /* Ширина текста */
+  /* Правые ссылки держим справа */
+  .main-header .aux-nav,
+  .site-header .aux-nav{
+    margin-left: auto;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  /* Ширина контента */
   .main-content{ max-width: 1100px !important; }
 }
 
 /* Читаемость текста */
 .main-content p{ font-size: 17px; line-height: 1.65; }
 
-/* Скрыть футер Just the Docs (на всякий случай дублируем) */
+/* Скрыть футер Just the Docs */
 .site-footer{ display:none !important; }
