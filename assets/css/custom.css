@@ -1,69 +1,95 @@
-/* === QUD custom layout === */
+/* =========================
+   QUD — чистый макет с нуля
+   ========================= */
 
-/* Только для десктопа */
+/* Десктопный вид */
 @media (min-width: 992px) {
 
-  /* 1) Узкий сайдбар */
-  .side-bar {
-    width: 240px !important;     /* ширина левого блока */
-    z-index: 1001 !important;     /* чтобы клики по меню не перекрывались */
-    padding-top: 56px;            /* место под наш переносимый заголовок */
+  /* Ключевые размеры — настраиваются здесь */
+  :root{
+    --qud-sidebar: 240px;         /* ширина левого серого блока */
+    --qud-gap: 12px;              /* зазор между серой панелью и шапкой/контентом */
+    --qud-header-h: 56px;         /* высота верхней шапки */
+    --qud-title-top: 12px;        /* верт. позиция QUD в сайдбаре (подгон по линии шапки) */
+    --qud-title-size: 24px;       /* размер надписи QUD */
+    --qud-border: rgba(0,0,0,0.08); /* цвет деликатных разделителей */
   }
 
-  /* 2) Основная часть смещаем правее ширины сайдбара */
-  .main {
-    margin-left: 260px !important;  /* чуть больше ширины .side-bar */
+  /* ===== Левая панель ===== */
+  .side-bar{
+    width: var(--qud-sidebar) !important;
+    min-height: 100vh;                 /* тянем серый фон до низа */
+    position: relative;
+    z-index: 1001 !important;          /* меню кликабельно, не перекрывается контентом */
+    padding-top: var(--qud-header-h);  /* место под заголовок вверху */
+    border-right: 1px solid var(--qud-border); /* вертикальный разделитель */
+  }
+
+  /* Надпись QUD (добавляется скриптом в head_custom.html) */
+  .qud-side-title{
+    position: absolute;
+    top: var(--qud-title-top);   /* ↑ если нужно поднять/опустить на 1–2px */
+    left: 16px;
+    margin: 0;
+    font-weight: 800;
+    font-size: var(--qud-title-size);
+    line-height: 1;
+    color: inherit;
+    text-decoration: none;
+    display: block;
+  }
+  .qud-side-title:hover{ text-decoration: underline; }
+
+  /* ===== Шапка (ряд с поиском и правыми ссылками) ===== */
+  .site-header,
+  .main-header{
+    padding-left: calc(var(--qud-sidebar) + var(--qud-gap)) !important; /* учёт ширины сайдбара */
+    min-height: var(--qud-header-h);
+    display: flex;
+    align-items: center; 
+    gap: 12px;
+    border-bottom: 1px solid var(--qud-border); /* горизонтальный разделитель */
+    background: #fff;
+  }
+
+  /* Убираем дефолтный заголовок темы в шапке — у нас QUD слева в сайдбаре */
+  .site-title{ display:none !important; }
+
+  /* Поиск: тянем максимально между левой панелью и правыми ссылками */
+  .main-header .search{
+    flex: 1 1 auto;
+    margin: 0;
+  }
+  .search-input-wrap{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Правые ссылки (WebTrader / Support) прижаты вправо */
+  .main-header .aux-nav,
+  .site-header .aux-nav{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  /* ===== Основная колонка контента ===== */
+  .main{
+    margin-left: calc(var(--qud-sidebar) + var(--qud-gap)) !important;
     position: relative;
     z-index: 1;
   }
-
-  /* 3) Шапка (полоса с поиском) тоже учитывает новый отступ */
-  .main-header,
-  .site-header {
-    padding-left: 260px !important;
-  }
-
-  /* 4) Расширяем контентную колонку */
-  .main-content {
-    max-width: 1100px !important;   /* было ~800 */
-  }
-
-  /* 5) Делаем поиск растяжимым между левым краем и ссылками справа */
-  .main-header .search {
-    flex: 1 1 auto;
-    margin: 0 16px;
-  }
-  .search-input-wrap {
-    max-width: 100% !important;
-    width: 100% !important;
+  .main-content{
+    max-width: 1100px !important;   /* шире, удобно читать */
   }
 }
 
-/* 6) Улучшаем читабельность текста */
-.main-content p {
+/* ===== Типографика и мелкие правки ===== */
+.main-content p{
   font-size: 17px;
   line-height: 1.65;
 }
 
-/* 7) Прячем дефолтный футер Just the Docs */
-.site-footer {
-  display: none !important;
-}
-
-/* 8) Сайдбарный заголовок QUD (который добавим скриптом) */
-.qud-side-title {
-  display: block;
-  font-weight: 700;
-  font-size: 18px;
-  text-decoration: none;
-  margin: 12px 16px 8px 16px;
-  color: inherit;
-}
-.qud-side-title:hover { text-decoration: underline; }
-
-/* Растягиваем левую панель на всю высоту страницы */
-.side-bar {
-  min-height: 100vh !important;   /* тянем до нижнего края видимой области */
-  height: auto !important;        /* позволяет растягиваться дальше, если контента много */
-}
-
+/* Прячем футер Just the Docs */
+.site-footer{ display:none !important; }
