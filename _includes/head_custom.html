@@ -1,15 +1,21 @@
+<!-- Подключаем наш кастомный CSS -->
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+
+<!-- Переносим заголовок в левую панель -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  /* Прячем заголовок в хедере */
   var hdrTitle = document.querySelector('.site-title');
   if (hdrTitle) hdrTitle.style.display = 'none';
+
+  /* Добавляем заголовок в сайдбар, если его ещё нет */
   var sb = document.querySelector('.side-bar');
   if (sb && !document.querySelector('#qud-side-title')) {
     var a = document.createElement('a');
     a.id = 'qud-side-title';
     a.className = 'qud-side-title';
     a.href = '{{ site.baseurl }}/';
-    a.textContent = 'QUD';
+    a.textContent = 'QUD — Demo Test Docs';
     sb.insertBefore(a, sb.firstChild);
   }
 });
