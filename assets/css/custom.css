@@ -66,12 +66,12 @@
 /* Sidebar background and base text color */
 .side-bar {
   background-color: #1a1a1a;
-  color: #BDFF0A;
+  color: #e1e1e1;
 }
 
 /* Navigation list styling */
 .side-bar .nav-list {
-  color: #b0b0b0;
+  color: #BDFF0A;
 }
 
 /* Default sidebar links */
