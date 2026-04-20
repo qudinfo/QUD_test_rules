@@ -134,3 +134,77 @@
 .qud-side-title:hover {
   color: #58a6ff;
 }
+
+/* === Dark Main Content Theme === */
+
+body {
+  background-color: #111315;
+  color: #C6C6C6;
+}
+
+.main,
+.main-content {
+  background-color: #111315;
+  color: #C6C6C6;
+}
+
+.main-header,
+.site-header {
+  background-color: #111315;
+  color: #C6C6C6;
+}
+
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
+  color: #C6C6C6;
+}
+
+.main-content a {
+  color: #58A6FF;
+  transition: color 0.2s ease;
+}
+
+.main-content a:hover {
+  color: #8FC1FF;
+}
+
+.main-content code {
+  background-color: #1e1e1e;
+  color: #C6C6C6;
+}
+
+.main-content pre {
+  background-color: #1e1e1e;
+  color: #C6C6C6;
+}
+
+.main-content blockquote {
+  color: #A0A0A0;
+  border-left-color: #58A6FF;
+}
+
+.main-content table {
+  border-color: #2d2d2d;
+}
+
+.main-content table tbody tr {
+  border-color: #2d2d2d;
+}
+
+.main-content table thead {
+  background-color: #1e1e1e;
+  color: #C6C6C6;
+}
+
+.main-content hr {
+  border-color: #2d2d2d;
+}
+
+.site-nav,
+.nav-category {
+  color: #C6C6C6;
+}
