@@ -1,6 +1,6 @@
 ---
 layout: default
-title: QUD Test
+title: О проекте
 nav_order: 1
 ---
 
