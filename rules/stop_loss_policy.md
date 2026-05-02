@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Политика Stop-Loss
-parent: Правила
+title: Развитие трейдера
+parent: Регламенты и условия
 nav_order: 3
 ---
 
