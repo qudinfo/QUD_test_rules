@@ -1,7 +1,7 @@
-title: QUD — Demo Test Docs
+title: QUD
 description: Правила, процедуры и FAQ
 
-# Подключаем тему как ��далённую (надёжно для project pages)
+# Подключаем тему как удалённую (надёжно для project pages)
 remote_theme: just-the-docs/just-the-docs
 plugins:
   - jekyll-remote-theme
