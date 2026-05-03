@@ -5,6 +5,10 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
+    /* Прячем заголовок в хедере */
+  var hdrTitle = document.querySelector('.site-title');
+  if (hdrTitle) hdrTitle.style.display = 'none';
+  
   /* Добавляем заголовок в сайдбар, если его ещё нет */
   var sb = document.querySelector('.side-bar');
   if (sb && !document.querySelector('#qud-side-title')) {
