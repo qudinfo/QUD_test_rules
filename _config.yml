@@ -1,7 +1,7 @@
 title: QUD — Demo Test Docs
 description: Правила, процедуры и FAQ
 
-# Подключаем тему как удалённую (надёжно для project pages)
+# Подключаем тему как ��далённую (надёжно для project pages)
 remote_theme: just-the-docs/just-the-docs
 plugins:
   - jekyll-remote-theme
@@ -11,6 +11,7 @@ url: "https://qudinfo.github.io"
 baseurl: "/QUD_test_rules"
 
 search_enabled: true
+search_placeholder_text: "Search"
 nav_sort: case_insensitive
 
 aux_links:
@@ -21,4 +22,3 @@ aux_links:
 
 footer_content: ""        # отключает надпись Just the Docs
 last_edit_timestamp: false
-last_edit_time_format: "%Y-%m-%d %H:%M %z"
