@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Торговая среда и доступ
+title: Развитие трейдера
 parent: Регламенты и условия
 nav_order: 2
 ---
