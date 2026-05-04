@@ -12,7 +12,7 @@ nav_order: 4
 
 ### Начало работы
 1. Перейдите на торговую платформу [WebTrader:](https://www.mql5.com/en/trading)
-2. Введите **login**, **password** из письма/сообщения от [qud_offic@proton.me](mailto:qud_offic@proton.me)
+2. Введите **login**, **password** из письма/сообщения от [qud_office@proton.me](mailto:qud_office@proton.me)
 3. Убедитесь, что вход выполнен и котировки/ордер-панель активны.
 
 > Данные предназначены **только** для участия в демо-тесте.
