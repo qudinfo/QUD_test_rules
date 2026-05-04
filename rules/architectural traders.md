@@ -2,7 +2,7 @@
 layout: default
 title: Развитие трейдера
 parent: Регламенты и условия
-nav_order: 2
+nav_order: 1
 ---
 
 # Архитектура развития трейдера
