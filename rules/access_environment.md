@@ -2,7 +2,7 @@
 layout: default
 title: Торговая среда и доступ
 parent: Регламенты и условия
-nav_order: 1
+nav_order: 4
 ---
 
 # Торговая среда и доступ
