@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Лимиты рисков
-parent: Правила
+parent: Торговая среда
 nav_order: 2
 ---
 
