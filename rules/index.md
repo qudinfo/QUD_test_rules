@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Регламенты и условия
-nav_order: 10
+nav_order: 2
 has_children: true
 ---
 
