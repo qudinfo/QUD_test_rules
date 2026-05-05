@@ -18,7 +18,7 @@ aux_links:
   WebTrader:
     - "https://www.mql5.com/en/trading"
   Support (email):
-    - "mailto:infoqud@proton.me"
+    - "mailto:qud_office@proton.me"
 
 footer_content: ""        # отключает надпись Just the Docs
 last_edit_timestamp: false
