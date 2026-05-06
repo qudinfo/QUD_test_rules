@@ -8,7 +8,7 @@ plugins:
 
 # ВАЖНО: для project pages baseurl = "/<имя_репозитория>"
 url: "https://qudinfo.github.io"
-baseurl: "/QUD_test_rules"
+baseurl: "/preQUD"
 
 search_enabled: true
 search_placeholder_text: "Search"
